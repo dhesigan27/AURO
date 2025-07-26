@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Birthday Letter Animation</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #ffecd2, #fcb69f);
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+    }
+
+    .envelope {
+      position: relative;
+      width: 300px;
+      height: 200px;
+      margin: 100px auto;
+      background: #fff;
+      border: 2px solid #ff4081;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      overflow: hidden;
+      animation: rise 3s ease forwards;
+    }
+
+    .letter {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 100%;
+      background: #fff8e1;
+      text-align: center;
+      padding: 20px;
+      box-sizing: border-box;
+      animation: slideUp 2s ease-in-out 2s forwards;
+    }
+
+    .letter h1 {
+      color: #e91e63;
+      font-size: 24px;
+      margin: 0 0 10px;
+    }
+
+    .letter p {
+      color: #555;
+      font-size: 16px;
+    }
+
+    @keyframes slideUp {
+      to { top: 0; }
+    }
+
+    @keyframes rise {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: red;
+      opacity: 0;
+      animation: confettiBlast 5s linear infinite;
+    }
+
+    .confetti:nth-child(odd) {
+      background: #4caf50;
+    }
+
+    .confetti:nth-child(even) {
+      background: #ffeb3b;
+    }
+
+    @keyframes confettiBlast {
+      0% {
+        top: -10px;
+        opacity: 1;
+        transform: rotate(0deg) translateX(0);
+      }
+      100% {
+        top: 100vh;
+        opacity: 0;
+        transform: rotate(360deg) translateX(50px);
+      }
+    }
+
+    /* Generate multiple confetti using pseudo elements */
+    .confetti-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .confetti-container div {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background-color: #ff4081;
+      animation: confettiBlast 4s linear infinite;
+    }
+
+    /* Random positions and delay */
+    .confetti-container div:nth-child(1)  { left: 10%; animation-delay: 0s; }
+    .confetti-container div:nth-child(2)  { left: 20%; animation-delay: 0.3s; }
+    .confetti-container div:nth-child(3)  { left: 30%; animation-delay: 0.6s; }
+    .confetti-container div:nth-child(4)  { left: 40%; animation-delay: 0.9s; }
+    .confetti-container div:nth-child(5)  { left: 50%; animation-delay: 1.2s; }
+    .confetti-container div:nth-child(6)  { left: 60%; animation-delay: 1.5s; }
+    .confetti-container div:nth-child(7)  { left: 70%; animation-delay: 1.8s; }
+    .confetti-container div:nth-child(8)  { left: 80%; animation-delay: 2.1s; }
+    .confetti-container div:nth-child(9)  { left: 90%; animation-delay: 2.4s; }
+    .confetti-container div:nth-child(10) { left: 100%; animation-delay: 2.7s; }
+
+  </style>
+</head>
+<body>
+
+  <div class="envelope">
+    <div class="letter">
+      <h1>Happy Birthday Suruli! 🎂</h1>
+      <p>Wishing you a day filled with joy, love, and unforgettable moments!</p>
+    </div>
+  </div>
+
+  <div class="confetti-container">
+    <div></div><div></div><div></div><div></div><div></div>
+    <div></div><div></div><div></div><div></div><div></div>
+  </div>
+
+</body>
+</html>
